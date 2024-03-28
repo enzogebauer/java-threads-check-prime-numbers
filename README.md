@@ -10,7 +10,19 @@ Assim, uma análise adequada requer a consideração dos tempos de execução ob
 
 ![image](https://github.com/enzogebauer/java-threads-check-prime-numbers/assets/80331520/990942f9-9c1d-4692-8874-7fbf80f1a514)
 
-Nele podemos ver que quando comparamos uma única thread com 5 temos uma diminuiçāo linear como esperado, entretando, essa diminuiçāo nāo se manteve ao aumentar-se o número de threads de 5 para 10.
+Nele pode-se observar a diminuição linear no tempo de execução ao aumentar o número de threads de 1 para 5, o que era esperada, pois a capacidade de processamento é distribuída entre várias threads, permitindo que mais trabalho seja feito simultaneamente. No entanto, ao aumentar o número de threads de 5 para 10, a diminuição no tempo de execução pode não ser tão grande devido a alguns fatores:
+
+Overhead de Threads: Cada thread tem um certo overhead associado à sua criação, gerenciamento e sincronização. Quando o número de threads aumenta, o overhead também aumenta, podendo diminuir a eficiência geral do programa.
+
+Limitações de Hardware: O hardware, como o número de núcleos de CPU e a capacidade de memória, também pode limitar o benefício de adicionar mais threads. Se o hardware não puder suportar eficientemente um grande número de threads, o aumento do número de threads pode levar a uma degradação do desempenho devido à competição por recursos.
+
+Conclusão:
+
+Para conjuntos de dados menores ou problemas menos intensivos em processamento, a implementação sequencial pode ser adequada devido à sua simplicidade e eficiência.
+Para conjuntos de dados maiores ou problemas que podem ser paralelizados eficientemente, as implementações paralelas oferecem uma significativa redução no tempo de execução.
+A escolha do número ideal de threads depende de vários fatores, incluindo o tamanho do problema, a arquitetura do sistema e a capacidade de hardware. Experimentação e análise são essenciais para determinar a configuração mais eficaz.
+
+
 
 
 
