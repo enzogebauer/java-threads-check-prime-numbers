@@ -32,10 +32,9 @@ public class Main {
                 List<Integer> primes = findPrimesParallel(numbers, threadNumber);
                 long endTime = System.currentTimeMillis();
                 long executionTime = endTime - startTime;
-                int totalThreadsRunning = countTotalThreads();
 
                 writePrimesToFile(primes, numbers, outputFilePrefix + threadNumber + "_threads.txt");
-                writeExecutionInfoToFile(threadNumber, executionTime, totalThreadsRunning, execTimeFile);
+                writeExecutionInfoToFile(threadNumber, executionTime, execTimeFile);
 
                 dataset.addValue(executionTime, "Execution Time", String.valueOf(threadNumber));
             }
@@ -127,17 +126,9 @@ public class Main {
         }
     }
 
-    private static int countTotalThreads() {
-        ThreadGroup group = Thread.currentThread().getThreadGroup();
-        while (group.getParent() != null) {
-            group = group.getParent();
-        }
-        return group.activeCount();
-    }
-
-    private static void writeExecutionInfoToFile(int threadNumber, long executionTime, int totalThreadsRunning, String fileName) throws IOException {
+    private static void writeExecutionInfoToFile(int threadNumber, long executionTime,  String fileName) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
-            writer.write(threadNumber + " Tempo de execuçāo em ms: " + executionTime + " número total de threads rodando " + totalThreadsRunning);
+            writer.write(threadNumber + " Tempo de execuçāo em ms: " + executionTime);
             writer.newLine();
         }
     }
