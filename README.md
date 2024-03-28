@@ -1,4 +1,4 @@
-O objetivo desta atividade foi investigar o comportamento da execução de um código de forma sequencial comparada a de forma paralela utilizando uma, cinco e dez threads.
+O objetivo desta atividade foi investigar o comportamento da execução de um código de verificar números primos de uma lista de forma sequencial comparada a de forma paralela utilizando uma, cinco e dez threads.
 
 Além disso, implementamos o uso da palavra reservada "synchronized" do Java para controlar o acesso à lista de números, garantindo que as threads alternem o acesso à região crítica da lista, onde os números foram armazenados.
 
